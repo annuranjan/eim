@@ -1,0 +1,8 @@
+<app-header [navbarMenu]="adminNavbarMenu"></app-header>
+<!-- <app-mainpage-admin></app-mainpage-admin> -->
+<div *ngIf="!sideMenuRequested; else loadSidebar">
+  <h3>Welcome Admin</h3>
+</div>
+<ng-template #loadSidebar>
+  <router-outlet></router-outlet>
+</ng-template>

@@ -1,0 +1,28 @@
+<nav>
+  <ul class="list-group" *ngFor="let submenuItem of submenu">
+    <li class="list-group-item">{{submenuItem.title}}</li>
+    <li class="list-group-item">
+      <ul class="sub-menu list-group" *ngFor="let subsubmenuItem of submenuItem.subMenu">
+        <li class="list-group-item">{{subsubmenuItem}}</li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+<!-- submenu = [
+{
+  title: "EIM Links",
+  subMenu: ["View Employees", "Add Employee", "Edit Employees"]
+},
+{
+  title: "Add more details",
+  subMenu: ["Domain Name",
+    "Languages", "Family Details", "Education Details", "Experience Details", "Training Details", "Nominee Details", "Salary Details"]
+},
+{
+  title: "Update Profile",
+  subMenu: ["Sub 1 List Item 3", "Sub 2 List Item 3", "Sub 3 List Item 3"]
+}
+]; -->
