@@ -21,18 +21,18 @@ export class AuthService {
             console.log("User type: " + response.usertype);
             switch (response.usertype) {
                 case ('admin'): {
-                    console.log("navigating to /admin");
-                    this.router.navigate(['/admin']);
+                    console.log("navigating to /adminHome");
+                    this.router.navigate(['/adminHome']);
                     break;
                 }
                 case ('manager'): {
-                    console.log("navigating to /manager");
-                    this.router.navigate(['/manager']);
+                    console.log("navigating to /managerHome");
+                    this.router.navigate(['/managerHome']);
                     break;
                 }
                 case ('employee'): {
-                    console.log("navigating to /employee");
-                    this.router.navigate(['/employee']);
+                    console.log("navigating to /employeeHome");
+                    this.router.navigate(['/employeeHome']);
                     break;
                 }
             }

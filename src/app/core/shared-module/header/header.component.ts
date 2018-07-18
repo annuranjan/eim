@@ -17,6 +17,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  onHomeClick(){
+    const url = this.authServ.getUserType()+'Home'
+    this.router.navigate([url]);
+  }
+
   onNavClick(menuItem: string) {
     console.log("menuItem: " + menuItem);
     this.appServ.sendNavMenuSub(menuItem);

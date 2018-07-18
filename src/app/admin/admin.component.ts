@@ -9,19 +9,22 @@ import { AppService } from '../core/app.service';
 })
 export class AdminComponent implements OnInit, OnDestroy {
 
-  adminNavbarMenu = ['Admin', 'EIM', 'Reports', 'Leave', 'Track Employee'];
-  sideMenuRequested = '';
+  adminNavbarMenu = ['Admin', 'EIM', 'Reports', 'Leave', 'Track Employee', 'Contact Book'];
+  sideMenuRequested;
   navMenuSubscription: Subscription;
   // admin = ['Admin', 'EIM', 'Reports', 'Leave', 'Track Employee'];
   // manager = ['Admin', 'EIM', 'Time Registration', 'Contact Book', 'Reports'];
   // employee = ['Time Registration', 'Leave'];
 
-  constructor(private appServ: AppService) { }
+  constructor(private appServ: AppService) {
+    console.log("sideMenuRequested: " + this.sideMenuRequested);
+  }
 
   ngOnInit() {
     this.navMenuSubscription = this.appServ.getNavMenuSub().
       subscribe(result => {
-        this.sideMenuRequested = result, console.log("Side menu: " + this.sideMenuRequested)
+        this.sideMenuRequested = result;
+        console.log("Side menu: " + this.sideMenuRequested)
       });
   }
 

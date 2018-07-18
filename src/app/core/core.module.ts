@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -11,18 +12,22 @@ import { AuthService } from './auth.service';
 import { AppService } from './app.service';
 import { AdminModule } from '../admin/admin.module';
 import { SharedModule } from './shared-module/shared.module';
-import { RouterModule } from '@angular/router';
+import { EmployeeModule } from '../employee/employee.module';
+import { ManagerModule } from '../manager/manager.module';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
-    CoreRoutingModule,
     HttpClientModule,
-    AdminModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    CoreRoutingModule,
+    AdminModule,
+    EmployeeModule,
+    ManagerModule
   ],
   declarations: [
     LoginComponent,

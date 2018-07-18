@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EimComponent implements OnInit {
 
+  //Submenu to populate the EIM list in the Admin Navbar
   submenu = [
     {
       title: "EIM Links",
-      subMenu: ["View Employees", "Add Employee", "Edit Employees"]
+      subMenu: ["View Employees", "Add Employee", "Edit Employee"]
     },
     {
       title: "Add more details",

@@ -4,15 +4,18 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from '../admin/admin.component';
 import { AdminModule } from '../admin/admin.module';
+import { EmployeeComponent } from '../employee/employee.component';
+import { ManagerComponent } from '../manager/manager.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "login", pathMatch: 'full' },
   { path: "login", component: LoginComponent },
-  { path: "admin", component: AdminComponent/*, loadChildren: '../admin/admin.module#AdminModule' */}
-  // { path: "admin", component: AdminComponent, loadChildren: 'src/app/admin/admin.module#AdminModule' }
-  // { path: "admin", component: AdminComponent, loadChildren: () => AdminModule }
-  // { path: "adm", redirectTo: "/admin", pathMatch: "/" }
+  { path: "adminHome", component: AdminComponent, loadChildren: () => AdminModule },
+  { path: 'empHome', component: EmployeeComponent },
+  { path: 'managerHome', component: ManagerComponent }
 ];
+
+
 
 @NgModule({
   imports: [
