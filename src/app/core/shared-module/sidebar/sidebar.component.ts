@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from '../../app.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../auth.service';
+import { SidebarMenus } from './sidebar-menu';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,10 +11,26 @@ import { AuthService } from '../../auth.service';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() submenu;
-  constructor(private authServ: AuthService, private appServ: AppService, private router: Router, private route: ActivatedRoute) { }
+  // @Input() submenu;
 
-  ngOnInit() { }
+  @Input() submenuRequested;
+  submenu;
+  constructor(private authServ: AuthService, private appServ: AppService, private router: Router, private route: ActivatedRoute, private sidebarmenu: SidebarMenus) { }
+
+  ngOnInit() {
+    const userType = this.authServ.getUserType();
+    this.submenu = this.sidebarmenu[userType][this.submenuRequested.toLowerCase()];
+    // switch (userType) {
+    //   case ("admin"): {
+    //     this.submenu = this.sidebarmenu.admin[]
+    //     break;
+    //   }
+    //   case ("manager"): { 
+    //     break; }
+    //   case ("manager"): { 
+    //     break; }
+    // }
+  }
 
   onSubMenuItemClick(submenuItem: string, submenuItemTitle: string) {
     let url;
@@ -44,17 +61,18 @@ export class SidebarComponent implements OnInit {
         url = this.appServ.adminRoutes[submenuItemTitle][submenuItem];
         break;
       }
+
       case ("manager"): {
         url = this.appServ.managerRoutes[submenuItemTitle][submenuItem];
         break;
       }
+
       case ("employee"): {
         url = this.appServ.employeeRoutes[submenuItemTitle][submenuItem];
         break;
       }
     }
 
-    console.log("url " + url);
     this.router.navigate([url], { relativeTo: this.route });
   }
 }

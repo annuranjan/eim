@@ -22,11 +22,18 @@ export class MiscDetailsComponent implements OnInit {
     this.miscForm = new FormGroup({
       "domainName": new FormControl(null, /*validator based on whether the user already */),
       "salary": new FormControl(),
-      "languages": new FormArray([
-        new FormControl(null, Validators.required)
-      ]),
-      "trainingDetails": new FormArray([])
+      "languages": new FormArray(
+        [new FormControl(null, Validators.required)]
+      ),
+      "trainingDetails": new FormArray(
+        [new FormGroup({
+          'trainingName': new FormControl(null, Validators.required),
+          'completionData': new FormControl(null, Validators.required),
+          'passingGrade': new FormControl(null, Validators.required)
+        })]
+      )
     });
+    console.log(this.miscForm.get('trainingDetails'));
   }
 
   onFormSubmit() {
@@ -39,9 +46,16 @@ export class MiscDetailsComponent implements OnInit {
     (<FormArray>this.miscForm.get('languages')).removeAt(index)
   }
   addATraining() {
-    (<FormArray>this.miscForm.get('trainingDetails')).push(new FormControl(null, Validators.required));
+    (<FormArray>this.miscForm.get('trainingDetails')).push(new FormGroup({
+      'trainingName': new FormControl(null, Validators.required),
+      'completionData': new FormControl(null, Validators.required),
+      'passingGrade': new FormControl(null, Validators.required)
+    }));
   }
   onDeleteATraining(index: number) {
+    (<FormArray>this.miscForm.get('trainingDetails')).removeAt(index);
+  }
+  deleteATraining(index: number) {
     (<FormArray>this.miscForm.get('trainingDetails')).removeAt(index);
   }
 }

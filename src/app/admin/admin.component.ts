@@ -16,15 +16,12 @@ export class AdminComponent implements OnInit, OnDestroy {
   // manager = ['Admin', 'EIM', 'Time Registration', 'Contact Book', 'Reports'];
   // employee = ['Time Registration', 'Leave'];
 
-  constructor(private appServ: AppService) {
-    console.log("sideMenuRequested: " + this.sideMenuRequested);
-  }
+  constructor(private appServ: AppService) { }
 
   ngOnInit() {
     this.navMenuSubscription = this.appServ.getNavMenuSub().
       subscribe(result => {
         this.sideMenuRequested = result;
-        console.log("Side menu: " + this.sideMenuRequested)
       });
   }
 

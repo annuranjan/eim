@@ -6,13 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./content-page.component.css']
 })
 export class ContentPageComponent implements OnInit {
-  sideMenuRequested = '';
-  @Input() submenu;
+  // sideMenuRequested = '';
+  @Input() submenuRequested;
+  // @Input() submenu;
   constructor() { }
 
-  ngOnInit() {
-    console.log("submenu is: ");
-    console.log(this.submenu);
-  }
+  ngOnInit() { }
 
 }

@@ -31,7 +31,7 @@ import { ManagerModule } from '../manager/manager.module';
   ],
   declarations: [
     LoginComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   exports: [],
   providers: [AuthService, AppService]

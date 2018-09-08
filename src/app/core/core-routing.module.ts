@@ -6,6 +6,7 @@ import { AdminComponent } from '../admin/admin.component';
 import { AdminModule } from '../admin/admin.module';
 import { EmployeeComponent } from '../employee/employee.component';
 import { ManagerComponent } from '../manager/manager.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "login", pathMatch: 'full' },

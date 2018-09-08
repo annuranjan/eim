@@ -11,19 +11,25 @@ import { AuthService } from '../../auth.service';
 export class HeaderComponent implements OnInit {
 
   @Input() navbarMenu: string[];
+  userType;
 
-  constructor(private authServ: AuthService, private appServ: AppService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private authServ: AuthService,
+    private appServ: AppService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
+
   }
 
-  onHomeClick(){
-    const url = this.authServ.getUserType()+'Home'
+  onHomeClick() {
+    const url = this.authServ.getUserType() + 'Home'
     this.router.navigate([url]);
   }
 
   onNavClick(menuItem: string) {
-    console.log("menuItem: " + menuItem);
     this.appServ.sendNavMenuSub(menuItem);
     // const url = '/' + this.authServ.getUserType() + '/' + menuItem.replace(/\s+/g, '').toLowerCase();
     const url = menuItem.replace(/\s+/g, '').toLowerCase();

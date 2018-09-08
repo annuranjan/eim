@@ -1,9 +1,11 @@
 <app-header [navbarMenu]="adminNavbarMenu"></app-header>
 <!-- <app-mainpage-admin></app-mainpage-admin> -->
-
-<div *ngIf="!sideMenuRequested">
-  <h3>Welcome Admin</h3>
+<div class="container-fluid">
+  <div *ngIf="!sideMenuRequested">
+    <h3>Welcome Admin</h3>
+  </div>
 </div>
+
 <div *ngIf="sideMenuRequested">
   <router-outlet></router-outlet>
 </div>

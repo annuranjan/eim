@@ -10,9 +10,6 @@ export class MainPageComponent implements OnInit {
   @Input() submenu;
   constructor() { }
 
-  ngOnInit() {
-    console.log("submenu is: ");
-    console.log(this.submenu);
-  }
+  ngOnInit() { }
 
 }

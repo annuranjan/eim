@@ -9,6 +9,7 @@ import { ManagerProcessReportComponent } from "./submenus/reports/manager-proces
 import { EmployeeProcessReportComponent } from "./submenus/reports/employee-process-report/employee-process-report.component";
 import { ReportsComponent } from "./submenus/reports/reports.component";
 import { MiscDetailsComponent } from "./submenus/eim/misc-details/misc-details.component";
+import { NotFoundComponent } from "../core/not-found/not-found.component";
 // EIM', 'Reports', 'Leave', 'Track Employee'];
 
 const adminRoutes: Routes = [
@@ -37,7 +38,7 @@ const adminRoutes: Routes = [
             { path: "leave", component: EimComponent },
             { path: "trackemployee", component: EimComponent }
         ]
-    },
+    }
 
 ];
 @NgModule({

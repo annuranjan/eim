@@ -23,11 +23,13 @@
             <span *ngIf="miscForm.get('salary').invalid && miscForm.get('salary').touched"></span>
           </div>
         </div>
+
         <div class="row">
           <div class="col-sm-8">
             <hr>
           </div>
         </div>
+
         <div formArrayName="languages">
           <button class="btn btn-default" (click)="addALanguage()">Add a language</button>&nbsp;
           <br>
@@ -41,35 +43,65 @@
             <span *ngIf="language.invalid && language.touched" [ngStyle]="{'color': 'red'}">Please enter a language!</span>
           </div>
         </div>
+
         <div class="row">
           <div class="col-sm-8">
             <hr>
           </div>
         </div>
+
         <div formArrayName="trainingDetails">
           <button class="btn btn-default" (click)="addATraining()">Add training details</button>
           <br>
           <br>
           <table class="table">
             <thead>
-              <tr>
-                <th scope="col-sm-1">#</th>
-                <th scope="col-sm-1">Training Name</th>
-                <th scope="col-sm-1">Date of Completion</th>
-                <th scope="col-sm-1">Passing Grade</th>
+              <tr aria-colspan="10">
+                <th colspan="1" scope="col">#</th>
+                <th colspan="5" scope="col">Training Name</th>
+                <th colspan="2" scope="col">Date of Completion</th>
+                <th colspan="2" scope="col">Passing Grade</th>
               </tr>
             </thead>
-            <tbody>
-
-            </tbody>
           </table>
-          <div class="form-group" *ngFor="let training of trainingDetails.controls; let i=index">
+          <!-- <tbody> -->
+          <div *ngFor="let formGroup of miscForm.get('trainingDetails').controls; let i =index">
+            <div [formGroupName]="i">
+              <div class="row col-sm-12">
+                <div class="col-sm-1">{{i+1}}</div>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" formControlName="trainingName" placeholder="Training Name">
+                </div>
+
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" formControlName="completionDate" placeholder="Completion Date">
+                </div>
+
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" formControlName="passingGrade" placeholder="Passing Grade">
+                </div>
+                <button class="btn btn-danger" (click)="deleteATraining(i)">Delete</button>
+              </div>
+            </div>
+
+            <!-- <div *ngFor="let entryRowCol of entryRowGroup; let j = index" class="form-control">
+                  <div [formGroupName]="i">
+                    <input type="text" formControlName="trainingName" placeholder="Training Name">
+                    <input type="text" formControlName="completionDate" placeholder="Completion Date">
+                    <input type="text" formControlName="passingGrade" placeholder="Passing Grade">
+                  </div>
+                </div> -->
+            <br>
+          </div>
+          <!-- </tbody> -->
+          <!-- </table> -->
+          <!-- <div class="form-group" *ngFor="let training of trainingDetails.controls; let i=index">
             <div class="row">
               <span class="col-sm-1">{{i+1}}</span>
               <input class="form-control col-sm-4" type="text" [formControlName]="i">&nbsp;
               <button class="btn btn-danger" (click)="onDeleteATraining">Delete</button>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="row">
           <div class="col-sm-8">
